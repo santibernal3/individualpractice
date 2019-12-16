@@ -1,0 +1,1952 @@
+Microsoft Windows [Version 10.0.17763.805]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\Users\santi>cmake --version
+cmake version 3.16.0-rc3
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+
+C:\Users\santi>cmake --help
+Usage
+
+  cmake [options] <path-to-source>
+  cmake [options] <path-to-existing-build>
+  cmake [options] -S <path-to-source> -B <path-to-build>
+
+Specify a source directory to (re-)generate a build system for it in the
+current working directory.  Specify an existing build directory to
+re-generate its build system.
+
+Options
+  -S <path-to-source>          = Explicitly specify a source directory.
+  -B <path-to-build>           = Explicitly specify a build directory.
+  -C <initial-cache>           = Pre-load a script to populate the cache.
+  -D <var>[:<type>]=<value>    = Create or update a cmake cache entry.
+  -U <globbing_expr>           = Remove matching entries from CMake cache.
+  -G <generator-name>          = Specify a build system generator.
+  -T <toolset-name>            = Specify toolset name if supported by
+                                 generator.
+  -A <platform-name>           = Specify platform name if supported by
+                                 generator.
+  -Wdev                        = Enable developer warnings.
+  -Wno-dev                     = Suppress developer warnings.
+  -Werror=dev                  = Make developer warnings errors.
+  -Wno-error=dev               = Make developer warnings not errors.
+  -Wdeprecated                 = Enable deprecation warnings.
+  -Wno-deprecated              = Suppress deprecation warnings.
+  -Werror=deprecated           = Make deprecated macro and function warnings
+                                 errors.
+  -Wno-error=deprecated        = Make deprecated macro and function warnings
+                                 not errors.
+  -E                           = CMake command mode.
+  -L[A][H]                     = List non-advanced cached variables.
+  --build <dir>                = Build a CMake-generated project binary tree.
+  --install <dir>              = Install a CMake-generated project binary
+                                 tree.
+  --open <dir>                 = Open generated project in the associated
+                                 application.
+  -N                           = View mode only.
+  -P <file>                    = Process script mode.
+  --find-package               = Run in pkg-config like mode.
+  --graphviz=[file]            = Generate graphviz of dependencies, see
+                                 CMakeGraphVizOptions.cmake for more.
+  --system-information [file]  = Dump information about this system.
+  --log-level=<ERROR|WARNING|NOTICE|STATUS|VERBOSE|DEBUG|TRACE>
+                               = Set the verbosity of messages from CMake
+                                 files.  --loglevel is also accepted for
+                                 backward compatibility reasons.
+  --debug-trycompile           = Do not delete the try_compile build tree.
+                                 Only useful on one try_compile at a time.
+  --debug-output               = Put cmake in a debug mode.
+  --trace                      = Put cmake in trace mode.
+  --trace-expand               = Put cmake in trace mode with variable
+                                 expansion.
+  --trace-source=<file>        = Trace only this CMake file/module.  Multiple
+                                 options allowed.
+  --trace-redirect=<file>      = Redirect trace output to a file instead of
+                                 stderr.
+  --warn-uninitialized         = Warn about uninitialized values.
+  --warn-unused-vars           = Warn about unused variables.
+  --no-warn-unused-cli         = Don't warn about command line options.
+  --check-system-vars          = Find problems with variable usage in system
+                                 files.
+  --help,-help,-usage,-h,-H,/? = Print usage information and exit.
+  --version,-version,/V [<f>]  = Print version number and exit.
+  --help-full [<f>]            = Print all help manuals and exit.
+  --help-manual <man> [<f>]    = Print one help manual and exit.
+  --help-manual-list [<f>]     = List help manuals available and exit.
+  --help-command <cmd> [<f>]   = Print help for one command and exit.
+  --help-command-list [<f>]    = List commands with help available and exit.
+  --help-commands [<f>]        = Print cmake-commands manual and exit.
+  --help-module <mod> [<f>]    = Print help for one module and exit.
+  --help-module-list [<f>]     = List modules with help available and exit.
+  --help-modules [<f>]         = Print cmake-modules manual and exit.
+  --help-policy <cmp> [<f>]    = Print help for one policy and exit.
+  --help-policy-list [<f>]     = List policies with help available and exit.
+  --help-policies [<f>]        = Print cmake-policies manual and exit.
+  --help-property <prop> [<f>] = Print help for one property and exit.
+  --help-property-list [<f>]   = List properties with help available and
+                                 exit.
+  --help-properties [<f>]      = Print cmake-properties manual and exit.
+  --help-variable var [<f>]    = Print help for one variable and exit.
+  --help-variable-list [<f>]   = List variables with help available and exit.
+  --help-variables [<f>]       = Print cmake-variables manual and exit.
+
+Generators
+
+The following generators are available on this platform (* marks default):
+* Visual Studio 16 2019        = Generates Visual Studio 2019 project files.
+                                 Use -A option to specify architecture.
+  Visual Studio 15 2017 [arch] = Generates Visual Studio 2017 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 14 2015 [arch] = Generates Visual Studio 2015 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 12 2013 [arch] = Generates Visual Studio 2013 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 11 2012 [arch] = Generates Visual Studio 2012 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 10 2010 [arch] = Generates Visual Studio 2010 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Visual Studio 9 2008 [arch]  = Generates Visual Studio 2008 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Borland Makefiles            = Generates Borland makefiles.
+  NMake Makefiles              = Generates NMake makefiles.
+  NMake Makefiles JOM          = Generates JOM makefiles.
+  MSYS Makefiles               = Generates MSYS makefiles.
+  MinGW Makefiles              = Generates a make file for use with
+                                 mingw32-make.
+  Unix Makefiles               = Generates standard UNIX makefiles.
+  Green Hills MULTI            = Generates Green Hills MULTI files
+                                 (experimental, work-in-progress).
+  Ninja                        = Generates build.ninja files.
+  Watcom WMake                 = Generates Watcom WMake makefiles.
+  CodeBlocks - MinGW Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles JOM
+                               = Generates CodeBlocks project files.
+  CodeBlocks - Ninja           = Generates CodeBlocks project files.
+  CodeBlocks - Unix Makefiles  = Generates CodeBlocks project files.
+  CodeLite - MinGW Makefiles   = Generates CodeLite project files.
+  CodeLite - NMake Makefiles   = Generates CodeLite project files.
+  CodeLite - Ninja             = Generates CodeLite project files.
+  CodeLite - Unix Makefiles    = Generates CodeLite project files.
+  Sublime Text 2 - MinGW Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - NMake Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Ninja       = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Unix Makefiles
+                               = Generates Sublime Text 2 project files.
+  Kate - MinGW Makefiles       = Generates Kate project files.
+  Kate - NMake Makefiles       = Generates Kate project files.
+  Kate - Ninja                 = Generates Kate project files.
+  Kate - Unix Makefiles        = Generates Kate project files.
+  Eclipse CDT4 - NMake Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - MinGW Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Ninja         = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Unix Makefiles= Generates Eclipse CDT 4.0 project files.
+
+
+C:\Users\santi>cd desktop\worksheet4\hello_cmake
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake>mkdir build
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake>cd build
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build>cmake -G "MinGW Makefiles" ..
+-- The C compiler identification is GNU 7.3.0
+-- The CXX compiler identification is GNU 7.3.0
+-- Check for working C compiler: C:/Qt/Tools/mingw730_64/bin/gcc.exe
+-- Check for working C compiler: C:/Qt/Tools/mingw730_64/bin/gcc.exe -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: C:/Qt/Tools/mingw730_64/bin/g++.exe
+-- Check for working CXX compiler: C:/Qt/Tools/mingw730_64/bin/g++.exe -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/santi/Desktop/worksheet4/hello_cmake/build
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is D470-C5ED
+
+ Directory of C:\Users\santi\Desktop\worksheet4\hello_cmake\build
+
+11/08/2019  11:37 AM    <DIR>          .
+11/08/2019  11:37 AM    <DIR>          ..
+11/08/2019  11:37 AM            16,686 CMakeCache.txt
+11/08/2019  11:37 AM    <DIR>          CMakeFiles
+11/08/2019  11:37 AM             1,465 cmake_install.cmake
+11/08/2019  11:37 AM             5,053 Makefile
+               3 File(s)         23,204 bytes
+               3 Dir(s)   7,464,898,560 bytes free
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build>mingw32-make
+Scanning dependencies of target hello
+[ 50%] Building CXX object CMakeFiles/hello.dir/hello.cpp.obj
+[100%] Linking CXX executable hello.exe
+[100%] Built target hello
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is D470-C5ED
+
+ Directory of C:\Users\santi\Desktop\worksheet4\hello_cmake\build
+
+11/08/2019  11:38 AM    <DIR>          .
+11/08/2019  11:38 AM    <DIR>          ..
+11/08/2019  11:37 AM            16,686 CMakeCache.txt
+11/08/2019  11:38 AM    <DIR>          CMakeFiles
+11/08/2019  11:37 AM             1,465 cmake_install.cmake
+11/08/2019  11:38 AM            56,370 hello.exe
+11/08/2019  11:37 AM             5,053 Makefile
+               4 File(s)         79,574 bytes
+               3 Dir(s)   7,464,697,856 bytes free
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build>mingw32-make clean
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build>mingw32-make VERBOSE=1
+"C:\Program Files\CMake\bin\cmake.exe" -SC:\Users\santi\Desktop\worksheet4\hello_cmake -BC:\Users\santi\Desktop\worksheet4\hello_cmake\build --check-build-system CMakeFiles\Makefile.cmake 0
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_progress_start C:\Users\santi\Desktop\worksheet4\hello_cmake\build\CMakeFiles C:\Users\santi\Desktop\worksheet4\hello_cmake\build\CMakeFiles\progress.marks
+mingw32-make -f CMakeFiles\Makefile2 all
+mingw32-make[1]: Entering directory 'C:/Users/santi/Desktop/worksheet4/hello_cmake/build'
+mingw32-make -f CMakeFiles\hello.dir\build.make CMakeFiles/hello.dir/depend
+mingw32-make[2]: Entering directory 'C:/Users/santi/Desktop/worksheet4/hello_cmake/build'
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_depends "MinGW Makefiles" C:\Users\santi\Desktop\worksheet4\hello_cmake C:\Users\santi\Desktop\worksheet4\hello_cmake C:\Users\santi\Desktop\worksheet4\hello_cmake\build C:\Users\santi\Desktop\worksheet4\hello_cmake\build C:\Users\santi\Desktop\worksheet4\hello_cmake\build\CMakeFiles\hello.dir\DependInfo.cmake --color=
+mingw32-make[2]: Leaving directory 'C:/Users/santi/Desktop/worksheet4/hello_cmake/build'
+mingw32-make -f CMakeFiles\hello.dir\build.make CMakeFiles/hello.dir/build
+mingw32-make[2]: Entering directory 'C:/Users/santi/Desktop/worksheet4/hello_cmake/build'
+[ 50%] Building CXX object CMakeFiles/hello.dir/hello.cpp.obj
+C:\Qt\Tools\mingw730_64\bin\g++.exe     -o CMakeFiles\hello.dir\hello.cpp.obj -c C:\Users\santi\Desktop\worksheet4\hello_cmake\hello.cpp
+[100%] Linking CXX executable hello.exe
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\hello.dir\link.txt --verbose=1
+"C:\Program Files\CMake\bin\cmake.exe" -E remove -f CMakeFiles\hello.dir/objects.a
+C:\Qt\Tools\mingw730_64\x86_64-w64-mingw32\bin\ar.exe cr CMakeFiles\hello.dir/objects.a @CMakeFiles\hello.dir\objects1.rsp
+C:\Qt\Tools\mingw730_64\bin\g++.exe    -Wl,--whole-archive CMakeFiles\hello.dir/objects.a -Wl,--no-whole-archive  -o hello.exe -Wl,--out-implib,libhello.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\hello.dir\linklibs.rsp
+mingw32-make[2]: Leaving directory 'C:/Users/santi/Desktop/worksheet4/hello_cmake/build'
+[100%] Built target hello
+mingw32-make[1]: Leaving directory 'C:/Users/santi/Desktop/worksheet4/hello_cmake/build'
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_progress_start C:\Users\santi\Desktop\worksheet4\hello_cmake\build\CMakeFiles 0
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build>cmake -G "visul studio 11 2012 Win64"
+CMake Error: Could not create named generator visul studio 11 2012 Win64
+
+Generators
+* Visual Studio 16 2019        = Generates Visual Studio 2019 project files.
+                                 Use -A option to specify architecture.
+  Visual Studio 15 2017 [arch] = Generates Visual Studio 2017 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 14 2015 [arch] = Generates Visual Studio 2015 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 12 2013 [arch] = Generates Visual Studio 2013 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 11 2012 [arch] = Generates Visual Studio 2012 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 10 2010 [arch] = Generates Visual Studio 2010 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Visual Studio 9 2008 [arch]  = Generates Visual Studio 2008 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Borland Makefiles            = Generates Borland makefiles.
+  NMake Makefiles              = Generates NMake makefiles.
+  NMake Makefiles JOM          = Generates JOM makefiles.
+  MSYS Makefiles               = Generates MSYS makefiles.
+  MinGW Makefiles              = Generates a make file for use with
+                                 mingw32-make.
+  Unix Makefiles               = Generates standard UNIX makefiles.
+  Green Hills MULTI            = Generates Green Hills MULTI files
+                                 (experimental, work-in-progress).
+  Ninja                        = Generates build.ninja files.
+  Watcom WMake                 = Generates Watcom WMake makefiles.
+  CodeBlocks - MinGW Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles JOM
+                               = Generates CodeBlocks project files.
+  CodeBlocks - Ninja           = Generates CodeBlocks project files.
+  CodeBlocks - Unix Makefiles  = Generates CodeBlocks project files.
+  CodeLite - MinGW Makefiles   = Generates CodeLite project files.
+  CodeLite - NMake Makefiles   = Generates CodeLite project files.
+  CodeLite - Ninja             = Generates CodeLite project files.
+  CodeLite - Unix Makefiles    = Generates CodeLite project files.
+  Sublime Text 2 - MinGW Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - NMake Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Ninja       = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Unix Makefiles
+                               = Generates Sublime Text 2 project files.
+  Kate - MinGW Makefiles       = Generates Kate project files.
+  Kate - NMake Makefiles       = Generates Kate project files.
+  Kate - Ninja                 = Generates Kate project files.
+  Kate - Unix Makefiles        = Generates Kate project files.
+  Eclipse CDT4 - NMake Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - MinGW Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Ninja         = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Unix Makefiles= Generates Eclipse CDT 4.0 project files.
+
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is D470-C5ED
+
+ Directory of C:\Users\santi\Desktop\worksheet4\hello_cmake\build
+
+11/08/2019  11:39 AM    <DIR>          .
+11/08/2019  11:39 AM    <DIR>          ..
+11/08/2019  11:37 AM            16,686 CMakeCache.txt
+11/08/2019  11:39 AM    <DIR>          CMakeFiles
+11/08/2019  11:37 AM             1,465 cmake_install.cmake
+11/08/2019  11:39 AM            56,370 hello.exe
+11/08/2019  11:37 AM             5,053 Makefile
+               4 File(s)         79,574 bytes
+               3 Dir(s)   7,464,271,872 bytes free
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build>cd-
+'cd-' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build>cd --
+The system cannot find the path specified.
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build>cd .
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build>cd ..
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake>mkdir build
+A subdirectory or file build already exists.
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake>build2
+'build2' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake>mkdir build2
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake>cd build2
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>cmake -G "visual studio 11 2012 Win64"
+CMake Error: Could not create named generator visual studio 11 2012 Win64
+
+Generators
+* Visual Studio 16 2019        = Generates Visual Studio 2019 project files.
+                                 Use -A option to specify architecture.
+  Visual Studio 15 2017 [arch] = Generates Visual Studio 2017 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 14 2015 [arch] = Generates Visual Studio 2015 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 12 2013 [arch] = Generates Visual Studio 2013 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 11 2012 [arch] = Generates Visual Studio 2012 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 10 2010 [arch] = Generates Visual Studio 2010 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Visual Studio 9 2008 [arch]  = Generates Visual Studio 2008 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Borland Makefiles            = Generates Borland makefiles.
+  NMake Makefiles              = Generates NMake makefiles.
+  NMake Makefiles JOM          = Generates JOM makefiles.
+  MSYS Makefiles               = Generates MSYS makefiles.
+  MinGW Makefiles              = Generates a make file for use with
+                                 mingw32-make.
+  Unix Makefiles               = Generates standard UNIX makefiles.
+  Green Hills MULTI            = Generates Green Hills MULTI files
+                                 (experimental, work-in-progress).
+  Ninja                        = Generates build.ninja files.
+  Watcom WMake                 = Generates Watcom WMake makefiles.
+  CodeBlocks - MinGW Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles JOM
+                               = Generates CodeBlocks project files.
+  CodeBlocks - Ninja           = Generates CodeBlocks project files.
+  CodeBlocks - Unix Makefiles  = Generates CodeBlocks project files.
+  CodeLite - MinGW Makefiles   = Generates CodeLite project files.
+  CodeLite - NMake Makefiles   = Generates CodeLite project files.
+  CodeLite - Ninja             = Generates CodeLite project files.
+  CodeLite - Unix Makefiles    = Generates CodeLite project files.
+  Sublime Text 2 - MinGW Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - NMake Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Ninja       = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Unix Makefiles
+                               = Generates Sublime Text 2 project files.
+  Kate - MinGW Makefiles       = Generates Kate project files.
+  Kate - NMake Makefiles       = Generates Kate project files.
+  Kate - Ninja                 = Generates Kate project files.
+  Kate - Unix Makefiles        = Generates Kate project files.
+  Eclipse CDT4 - NMake Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - MinGW Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Ninja         = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Unix Makefiles= Generates Eclipse CDT 4.0 project files.
+
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is D470-C5ED
+
+ Directory of C:\Users\santi\Desktop\worksheet4\hello_cmake\build2
+
+11/08/2019  11:48 AM    <DIR>          .
+11/08/2019  11:48 AM    <DIR>          ..
+               0 File(s)              0 bytes
+               2 Dir(s)   7,459,745,792 bytes free
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>c ..
+'c' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>cd ..
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is D470-C5ED
+
+ Directory of C:\Users\santi\Desktop\worksheet4\hello_cmake
+
+11/08/2019  11:48 AM    <DIR>          .
+11/08/2019  11:48 AM    <DIR>          ..
+11/08/2019  11:39 AM    <DIR>          build
+11/08/2019  11:48 AM    <DIR>          build2
+11/08/2019  11:29 AM               154 CMakeLists.txt
+10/31/2019  05:50 PM               153 hello.cpp
+               2 File(s)            307 bytes
+               4 Dir(s)   7,459,741,696 bytes free
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake>cd build
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build>cmake -G "visual studio 11 2012 Win64"
+CMake Error: Could not create named generator visual studio 11 2012 Win64
+
+Generators
+* Visual Studio 16 2019        = Generates Visual Studio 2019 project files.
+                                 Use -A option to specify architecture.
+  Visual Studio 15 2017 [arch] = Generates Visual Studio 2017 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 14 2015 [arch] = Generates Visual Studio 2015 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 12 2013 [arch] = Generates Visual Studio 2013 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 11 2012 [arch] = Generates Visual Studio 2012 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 10 2010 [arch] = Generates Visual Studio 2010 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Visual Studio 9 2008 [arch]  = Generates Visual Studio 2008 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Borland Makefiles            = Generates Borland makefiles.
+  NMake Makefiles              = Generates NMake makefiles.
+  NMake Makefiles JOM          = Generates JOM makefiles.
+  MSYS Makefiles               = Generates MSYS makefiles.
+  MinGW Makefiles              = Generates a make file for use with
+                                 mingw32-make.
+  Unix Makefiles               = Generates standard UNIX makefiles.
+  Green Hills MULTI            = Generates Green Hills MULTI files
+                                 (experimental, work-in-progress).
+  Ninja                        = Generates build.ninja files.
+  Watcom WMake                 = Generates Watcom WMake makefiles.
+  CodeBlocks - MinGW Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles JOM
+                               = Generates CodeBlocks project files.
+  CodeBlocks - Ninja           = Generates CodeBlocks project files.
+  CodeBlocks - Unix Makefiles  = Generates CodeBlocks project files.
+  CodeLite - MinGW Makefiles   = Generates CodeLite project files.
+  CodeLite - NMake Makefiles   = Generates CodeLite project files.
+  CodeLite - Ninja             = Generates CodeLite project files.
+  CodeLite - Unix Makefiles    = Generates CodeLite project files.
+  Sublime Text 2 - MinGW Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - NMake Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Ninja       = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Unix Makefiles
+                               = Generates Sublime Text 2 project files.
+  Kate - MinGW Makefiles       = Generates Kate project files.
+  Kate - NMake Makefiles       = Generates Kate project files.
+  Kate - Ninja                 = Generates Kate project files.
+  Kate - Unix Makefiles        = Generates Kate project files.
+  Eclipse CDT4 - NMake Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - MinGW Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Ninja         = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Unix Makefiles= Generates Eclipse CDT 4.0 project files.
+
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is D470-C5ED
+
+ Directory of C:\Users\santi\Desktop\worksheet4\hello_cmake\build
+
+11/08/2019  11:39 AM    <DIR>          .
+11/08/2019  11:39 AM    <DIR>          ..
+11/08/2019  11:37 AM            16,686 CMakeCache.txt
+11/08/2019  11:39 AM    <DIR>          CMakeFiles
+11/08/2019  11:37 AM             1,465 cmake_install.cmake
+11/08/2019  11:39 AM            56,370 hello.exe
+11/08/2019  11:37 AM             5,053 Makefile
+               4 File(s)         79,574 bytes
+               3 Dir(s)   7,459,725,312 bytes free
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build>cd ..
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake>build2
+'build2' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake>cd build2
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is D470-C5ED
+
+ Directory of C:\Users\santi\Desktop\worksheet4\hello_cmake\build2
+
+11/08/2019  11:48 AM    <DIR>          .
+11/08/2019  11:48 AM    <DIR>          ..
+               0 File(s)              0 bytes
+               2 Dir(s)   7,459,164,160 bytes free
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>cmake -G "visual studio 11 2012 Win64"
+CMake Error: Could not create named generator visual studio 11 2012 Win64
+
+Generators
+* Visual Studio 16 2019        = Generates Visual Studio 2019 project files.
+                                 Use -A option to specify architecture.
+  Visual Studio 15 2017 [arch] = Generates Visual Studio 2017 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 14 2015 [arch] = Generates Visual Studio 2015 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 12 2013 [arch] = Generates Visual Studio 2013 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 11 2012 [arch] = Generates Visual Studio 2012 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 10 2010 [arch] = Generates Visual Studio 2010 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Visual Studio 9 2008 [arch]  = Generates Visual Studio 2008 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Borland Makefiles            = Generates Borland makefiles.
+  NMake Makefiles              = Generates NMake makefiles.
+  NMake Makefiles JOM          = Generates JOM makefiles.
+  MSYS Makefiles               = Generates MSYS makefiles.
+  MinGW Makefiles              = Generates a make file for use with
+                                 mingw32-make.
+  Unix Makefiles               = Generates standard UNIX makefiles.
+  Green Hills MULTI            = Generates Green Hills MULTI files
+                                 (experimental, work-in-progress).
+  Ninja                        = Generates build.ninja files.
+  Watcom WMake                 = Generates Watcom WMake makefiles.
+  CodeBlocks - MinGW Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles JOM
+                               = Generates CodeBlocks project files.
+  CodeBlocks - Ninja           = Generates CodeBlocks project files.
+  CodeBlocks - Unix Makefiles  = Generates CodeBlocks project files.
+  CodeLite - MinGW Makefiles   = Generates CodeLite project files.
+  CodeLite - NMake Makefiles   = Generates CodeLite project files.
+  CodeLite - Ninja             = Generates CodeLite project files.
+  CodeLite - Unix Makefiles    = Generates CodeLite project files.
+  Sublime Text 2 - MinGW Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - NMake Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Ninja       = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Unix Makefiles
+                               = Generates Sublime Text 2 project files.
+  Kate - MinGW Makefiles       = Generates Kate project files.
+  Kate - NMake Makefiles       = Generates Kate project files.
+  Kate - Ninja                 = Generates Kate project files.
+  Kate - Unix Makefiles        = Generates Kate project files.
+  Eclipse CDT4 - NMake Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - MinGW Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Ninja         = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Unix Makefiles= Generates Eclipse CDT 4.0 project files.
+
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is D470-C5ED
+
+ Directory of C:\Users\santi\Desktop\worksheet4\hello_cmake\build2
+
+11/08/2019  11:48 AM    <DIR>          .
+11/08/2019  11:48 AM    <DIR>          ..
+               0 File(s)              0 bytes
+               2 Dir(s)   7,459,160,064 bytes free
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>cmake -G "visual Studio 11 2012 Win64"
+CMake Error: Could not create named generator visual Studio 11 2012 Win64
+
+Generators
+* Visual Studio 16 2019        = Generates Visual Studio 2019 project files.
+                                 Use -A option to specify architecture.
+  Visual Studio 15 2017 [arch] = Generates Visual Studio 2017 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 14 2015 [arch] = Generates Visual Studio 2015 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 12 2013 [arch] = Generates Visual Studio 2013 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 11 2012 [arch] = Generates Visual Studio 2012 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 10 2010 [arch] = Generates Visual Studio 2010 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Visual Studio 9 2008 [arch]  = Generates Visual Studio 2008 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Borland Makefiles            = Generates Borland makefiles.
+  NMake Makefiles              = Generates NMake makefiles.
+  NMake Makefiles JOM          = Generates JOM makefiles.
+  MSYS Makefiles               = Generates MSYS makefiles.
+  MinGW Makefiles              = Generates a make file for use with
+                                 mingw32-make.
+  Unix Makefiles               = Generates standard UNIX makefiles.
+  Green Hills MULTI            = Generates Green Hills MULTI files
+                                 (experimental, work-in-progress).
+  Ninja                        = Generates build.ninja files.
+  Watcom WMake                 = Generates Watcom WMake makefiles.
+  CodeBlocks - MinGW Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles JOM
+                               = Generates CodeBlocks project files.
+  CodeBlocks - Ninja           = Generates CodeBlocks project files.
+  CodeBlocks - Unix Makefiles  = Generates CodeBlocks project files.
+  CodeLite - MinGW Makefiles   = Generates CodeLite project files.
+  CodeLite - NMake Makefiles   = Generates CodeLite project files.
+  CodeLite - Ninja             = Generates CodeLite project files.
+  CodeLite - Unix Makefiles    = Generates CodeLite project files.
+  Sublime Text 2 - MinGW Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - NMake Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Ninja       = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Unix Makefiles
+                               = Generates Sublime Text 2 project files.
+  Kate - MinGW Makefiles       = Generates Kate project files.
+  Kate - NMake Makefiles       = Generates Kate project files.
+  Kate - Ninja                 = Generates Kate project files.
+  Kate - Unix Makefiles        = Generates Kate project files.
+  Eclipse CDT4 - NMake Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - MinGW Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Ninja         = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Unix Makefiles= Generates Eclipse CDT 4.0 project files.
+
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is D470-C5ED
+
+ Directory of C:\Users\santi\Desktop\worksheet4\hello_cmake\build2
+
+11/08/2019  11:48 AM    <DIR>          .
+11/08/2019  11:48 AM    <DIR>          ..
+               0 File(s)              0 bytes
+               2 Dir(s)   7,459,344,384 bytes free
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>cd ..
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake>build2
+'build2' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake>cmake -G "visual Studio 11 2012 Win64" ..
+CMake Error: Could not create named generator visual Studio 11 2012 Win64
+
+Generators
+* Visual Studio 16 2019        = Generates Visual Studio 2019 project files.
+                                 Use -A option to specify architecture.
+  Visual Studio 15 2017 [arch] = Generates Visual Studio 2017 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 14 2015 [arch] = Generates Visual Studio 2015 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 12 2013 [arch] = Generates Visual Studio 2013 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 11 2012 [arch] = Generates Visual Studio 2012 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 10 2010 [arch] = Generates Visual Studio 2010 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Visual Studio 9 2008 [arch]  = Generates Visual Studio 2008 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Borland Makefiles            = Generates Borland makefiles.
+  NMake Makefiles              = Generates NMake makefiles.
+  NMake Makefiles JOM          = Generates JOM makefiles.
+  MSYS Makefiles               = Generates MSYS makefiles.
+  MinGW Makefiles              = Generates a make file for use with
+                                 mingw32-make.
+  Unix Makefiles               = Generates standard UNIX makefiles.
+  Green Hills MULTI            = Generates Green Hills MULTI files
+                                 (experimental, work-in-progress).
+  Ninja                        = Generates build.ninja files.
+  Watcom WMake                 = Generates Watcom WMake makefiles.
+  CodeBlocks - MinGW Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles JOM
+                               = Generates CodeBlocks project files.
+  CodeBlocks - Ninja           = Generates CodeBlocks project files.
+  CodeBlocks - Unix Makefiles  = Generates CodeBlocks project files.
+  CodeLite - MinGW Makefiles   = Generates CodeLite project files.
+  CodeLite - NMake Makefiles   = Generates CodeLite project files.
+  CodeLite - Ninja             = Generates CodeLite project files.
+  CodeLite - Unix Makefiles    = Generates CodeLite project files.
+  Sublime Text 2 - MinGW Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - NMake Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Ninja       = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Unix Makefiles
+                               = Generates Sublime Text 2 project files.
+  Kate - MinGW Makefiles       = Generates Kate project files.
+  Kate - NMake Makefiles       = Generates Kate project files.
+  Kate - Ninja                 = Generates Kate project files.
+  Kate - Unix Makefiles        = Generates Kate project files.
+  Eclipse CDT4 - NMake Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - MinGW Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Ninja         = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Unix Makefiles= Generates Eclipse CDT 4.0 project files.
+
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is D470-C5ED
+
+ Directory of C:\Users\santi\Desktop\worksheet4\hello_cmake
+
+11/08/2019  11:48 AM    <DIR>          .
+11/08/2019  11:48 AM    <DIR>          ..
+11/08/2019  11:39 AM    <DIR>          build
+11/08/2019  11:48 AM    <DIR>          build2
+11/08/2019  11:29 AM               154 CMakeLists.txt
+10/31/2019  05:50 PM               153 hello.cpp
+               2 File(s)            307 bytes
+               4 Dir(s)   7,459,340,288 bytes free
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake>cd ..
+
+C:\Users\santi\Desktop\worksheet4>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is D470-C5ED
+
+ Directory of C:\Users\santi\Desktop\worksheet4
+
+11/08/2019  11:19 AM    <DIR>          .
+11/08/2019  11:19 AM    <DIR>          ..
+11/08/2019  11:48 AM    <DIR>          hello_cmake
+               0 File(s)              0 bytes
+               3 Dir(s)   7,459,336,192 bytes free
+
+C:\Users\santi\Desktop\worksheet4>cd build2
+The system cannot find the path specified.
+
+C:\Users\santi\Desktop\worksheet4>cd hello_cmake
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is D470-C5ED
+
+ Directory of C:\Users\santi\Desktop\worksheet4\hello_cmake
+
+11/08/2019  11:48 AM    <DIR>          .
+11/08/2019  11:48 AM    <DIR>          ..
+11/08/2019  11:39 AM    <DIR>          build
+11/08/2019  11:48 AM    <DIR>          build2
+11/08/2019  11:29 AM               154 CMakeLists.txt
+10/31/2019  05:50 PM               153 hello.cpp
+               2 File(s)            307 bytes
+               4 Dir(s)   7,459,336,192 bytes free
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake>cd build2
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is D470-C5ED
+
+ Directory of C:\Users\santi\Desktop\worksheet4\hello_cmake\build2
+
+11/08/2019  11:48 AM    <DIR>          .
+11/08/2019  11:48 AM    <DIR>          ..
+               0 File(s)              0 bytes
+               2 Dir(s)   7,459,229,696 bytes free
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>cmake -G "visual Studio 11 2012 Win64" ..
+CMake Error: Could not create named generator visual Studio 11 2012 Win64
+
+Generators
+* Visual Studio 16 2019        = Generates Visual Studio 2019 project files.
+                                 Use -A option to specify architecture.
+  Visual Studio 15 2017 [arch] = Generates Visual Studio 2017 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 14 2015 [arch] = Generates Visual Studio 2015 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 12 2013 [arch] = Generates Visual Studio 2013 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 11 2012 [arch] = Generates Visual Studio 2012 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 10 2010 [arch] = Generates Visual Studio 2010 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Visual Studio 9 2008 [arch]  = Generates Visual Studio 2008 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Borland Makefiles            = Generates Borland makefiles.
+  NMake Makefiles              = Generates NMake makefiles.
+  NMake Makefiles JOM          = Generates JOM makefiles.
+  MSYS Makefiles               = Generates MSYS makefiles.
+  MinGW Makefiles              = Generates a make file for use with
+                                 mingw32-make.
+  Unix Makefiles               = Generates standard UNIX makefiles.
+  Green Hills MULTI            = Generates Green Hills MULTI files
+                                 (experimental, work-in-progress).
+  Ninja                        = Generates build.ninja files.
+  Watcom WMake                 = Generates Watcom WMake makefiles.
+  CodeBlocks - MinGW Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles JOM
+                               = Generates CodeBlocks project files.
+  CodeBlocks - Ninja           = Generates CodeBlocks project files.
+  CodeBlocks - Unix Makefiles  = Generates CodeBlocks project files.
+  CodeLite - MinGW Makefiles   = Generates CodeLite project files.
+  CodeLite - NMake Makefiles   = Generates CodeLite project files.
+  CodeLite - Ninja             = Generates CodeLite project files.
+  CodeLite - Unix Makefiles    = Generates CodeLite project files.
+  Sublime Text 2 - MinGW Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - NMake Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Ninja       = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Unix Makefiles
+                               = Generates Sublime Text 2 project files.
+  Kate - MinGW Makefiles       = Generates Kate project files.
+  Kate - NMake Makefiles       = Generates Kate project files.
+  Kate - Ninja                 = Generates Kate project files.
+  Kate - Unix Makefiles        = Generates Kate project files.
+  Eclipse CDT4 - NMake Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - MinGW Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Ninja         = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Unix Makefiles= Generates Eclipse CDT 4.0 project files.
+
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is D470-C5ED
+
+ Directory of C:\Users\santi\Desktop\worksheet4\hello_cmake\build2
+
+11/08/2019  11:48 AM    <DIR>          .
+11/08/2019  11:48 AM    <DIR>          ..
+               0 File(s)              0 bytes
+               2 Dir(s)   7,463,161,856 bytes free
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>cmake -G "visual Studio 11 2012 Win64" ..
+CMake Error: Could not create named generator visual Studio 11 2012 Win64
+
+Generators
+* Visual Studio 16 2019        = Generates Visual Studio 2019 project files.
+                                 Use -A option to specify architecture.
+  Visual Studio 15 2017 [arch] = Generates Visual Studio 2017 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 14 2015 [arch] = Generates Visual Studio 2015 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 12 2013 [arch] = Generates Visual Studio 2013 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 11 2012 [arch] = Generates Visual Studio 2012 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 10 2010 [arch] = Generates Visual Studio 2010 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Visual Studio 9 2008 [arch]  = Generates Visual Studio 2008 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Borland Makefiles            = Generates Borland makefiles.
+  NMake Makefiles              = Generates NMake makefiles.
+  NMake Makefiles JOM          = Generates JOM makefiles.
+  MSYS Makefiles               = Generates MSYS makefiles.
+  MinGW Makefiles              = Generates a make file for use with
+                                 mingw32-make.
+  Unix Makefiles               = Generates standard UNIX makefiles.
+  Green Hills MULTI            = Generates Green Hills MULTI files
+                                 (experimental, work-in-progress).
+  Ninja                        = Generates build.ninja files.
+  Watcom WMake                 = Generates Watcom WMake makefiles.
+  CodeBlocks - MinGW Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles JOM
+                               = Generates CodeBlocks project files.
+  CodeBlocks - Ninja           = Generates CodeBlocks project files.
+  CodeBlocks - Unix Makefiles  = Generates CodeBlocks project files.
+  CodeLite - MinGW Makefiles   = Generates CodeLite project files.
+  CodeLite - NMake Makefiles   = Generates CodeLite project files.
+  CodeLite - Ninja             = Generates CodeLite project files.
+  CodeLite - Unix Makefiles    = Generates CodeLite project files.
+  Sublime Text 2 - MinGW Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - NMake Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Ninja       = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Unix Makefiles
+                               = Generates Sublime Text 2 project files.
+  Kate - MinGW Makefiles       = Generates Kate project files.
+  Kate - NMake Makefiles       = Generates Kate project files.
+  Kate - Ninja                 = Generates Kate project files.
+  Kate - Unix Makefiles        = Generates Kate project files.
+  Eclipse CDT4 - NMake Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - MinGW Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Ninja         = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Unix Makefiles= Generates Eclipse CDT 4.0 project files.
+
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>cmake -G "Visual Studio 11 2012 Win64" ..
+CMake Error at CMakeLists.txt:3 (project):
+  Failed to run MSBuild command:
+
+    C:/Windows/Microsoft.NET/Framework/v4.0.30319/MSBuild.exe
+
+  to get the value of VCTargetsPath:
+
+    Microsoft (R) Build Engine version 4.8.3761.0
+    [Microsoft .NET Framework, version 4.0.30319.42000]
+    Copyright (C) Microsoft Corporation. All rights reserved.
+
+    Build started 11/8/2019 11:57:19 AM.
+    Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\CMakeFiles\3.16.0-rc3\VCTargetsPath.vcxproj" on node 1 (default targets).
+    C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\CMakeFiles\3.16.0-rc3\VCTargetsPath.vcxproj(14,2): error MSB4019: The imported project "C:\Microsoft.Cpp.Default.props" was not found. Confirm that the path in the <Import> declaration is correct, and that the file exists on disk.
+    Done Building Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\CMakeFiles\3.16.0-rc3\VCTargetsPath.vcxproj" (default targets) -- FAILED.
+
+    Build FAILED.
+
+    "C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\CMakeFiles\3.16.0-rc3\VCTargetsPath.vcxproj" (default target) (1) ->
+      C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\CMakeFiles\3.16.0-rc3\VCTargetsPath.vcxproj(14,2): error MSB4019: The imported project "C:\Microsoft.Cpp.Default.props" was not found. Confirm that the path in the <Import> declaration is correct, and that the file exists on disk.
+
+        0 Warning(s)
+        1 Error(s)
+
+    Time Elapsed 00:00:00.21
+
+
+  Exit code: 1
+
+
+
+-- Configuring incomplete, errors occurred!
+See also "C:/Users/santi/Desktop/worksheet4/hello_cmake/build2/CMakeFiles/CMakeOutput.log".
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>cmake -G "Visual Studio 11 2012 Win64" ..
+CMake Error at CMakeLists.txt:3 (project):
+  Failed to run MSBuild command:
+
+    C:/Windows/Microsoft.NET/Framework/v4.0.30319/MSBuild.exe
+
+  to get the value of VCTargetsPath:
+
+    Microsoft (R) Build Engine version 4.8.3761.0
+    [Microsoft .NET Framework, version 4.0.30319.42000]
+    Copyright (C) Microsoft Corporation. All rights reserved.
+
+    Build started 11/8/2019 11:59:57 AM.
+    Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\CMakeFiles\3.16.0-rc3\VCTargetsPath.vcxproj" on node 1 (default targets).
+    C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\CMakeFiles\3.16.0-rc3\VCTargetsPath.vcxproj(14,2): error MSB4019: The imported project "C:\Microsoft.Cpp.Default.props" was not found. Confirm that the path in the <Import> declaration is correct, and that the file exists on disk.
+    Done Building Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\CMakeFiles\3.16.0-rc3\VCTargetsPath.vcxproj" (default targets) -- FAILED.
+
+    Build FAILED.
+
+    "C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\CMakeFiles\3.16.0-rc3\VCTargetsPath.vcxproj" (default target) (1) ->
+      C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\CMakeFiles\3.16.0-rc3\VCTargetsPath.vcxproj(14,2): error MSB4019: The imported project "C:\Microsoft.Cpp.Default.props" was not found. Confirm that the path in the <Import> declaration is correct, and that the file exists on disk.
+
+        0 Warning(s)
+        1 Error(s)
+
+    Time Elapsed 00:00:00.26
+
+
+  Exit code: 1
+
+
+
+-- Configuring incomplete, errors occurred!
+See also "C:/Users/santi/Desktop/worksheet4/hello_cmake/build2/CMakeFiles/CMakeOutput.log".
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>cmake -G "Visual Studio 11 2012 Win64" ..
+CMake Error at CMakeLists.txt:3 (project):
+  Failed to run MSBuild command:
+
+    C:/Windows/Microsoft.NET/Framework/v4.0.30319/MSBuild.exe
+
+  to get the value of VCTargetsPath:
+
+    Microsoft (R) Build Engine version 4.8.3761.0
+    [Microsoft .NET Framework, version 4.0.30319.42000]
+    Copyright (C) Microsoft Corporation. All rights reserved.
+
+    Build started 11/8/2019 1:32:27 PM.
+    Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\CMakeFiles\3.16.0-rc3\VCTargetsPath.vcxproj" on node 1 (default targets).
+    C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\CMakeFiles\3.16.0-rc3\VCTargetsPath.vcxproj(14,2): error MSB4019: The imported project "C:\Microsoft.Cpp.Default.props" was not found. Confirm that the path in the <Import> declaration is correct, and that the file exists on disk.
+    Done Building Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\CMakeFiles\3.16.0-rc3\VCTargetsPath.vcxproj" (default targets) -- FAILED.
+
+    Build FAILED.
+
+    "C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\CMakeFiles\3.16.0-rc3\VCTargetsPath.vcxproj" (default target) (1) ->
+      C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\CMakeFiles\3.16.0-rc3\VCTargetsPath.vcxproj(14,2): error MSB4019: The imported project "C:\Microsoft.Cpp.Default.props" was not found. Confirm that the path in the <Import> declaration is correct, and that the file exists on disk.
+
+        0 Warning(s)
+        1 Error(s)
+
+    Time Elapsed 00:00:00.22
+
+
+  Exit code: 1
+
+
+
+-- Configuring incomplete, errors occurred!
+See also "C:/Users/santi/Desktop/worksheet4/hello_cmake/build2/CMakeFiles/CMakeOutput.log".
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>cmake -G "Visual Studio 16 2019 Win64" ..
+CMake Error: Could not create named generator Visual Studio 16 2019 Win64
+
+Generators
+* Visual Studio 16 2019        = Generates Visual Studio 2019 project files.
+                                 Use -A option to specify architecture.
+  Visual Studio 15 2017 [arch] = Generates Visual Studio 2017 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 14 2015 [arch] = Generates Visual Studio 2015 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 12 2013 [arch] = Generates Visual Studio 2013 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 11 2012 [arch] = Generates Visual Studio 2012 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 10 2010 [arch] = Generates Visual Studio 2010 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Visual Studio 9 2008 [arch]  = Generates Visual Studio 2008 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Borland Makefiles            = Generates Borland makefiles.
+  NMake Makefiles              = Generates NMake makefiles.
+  NMake Makefiles JOM          = Generates JOM makefiles.
+  MSYS Makefiles               = Generates MSYS makefiles.
+  MinGW Makefiles              = Generates a make file for use with
+                                 mingw32-make.
+  Unix Makefiles               = Generates standard UNIX makefiles.
+  Green Hills MULTI            = Generates Green Hills MULTI files
+                                 (experimental, work-in-progress).
+  Ninja                        = Generates build.ninja files.
+  Watcom WMake                 = Generates Watcom WMake makefiles.
+  CodeBlocks - MinGW Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles JOM
+                               = Generates CodeBlocks project files.
+  CodeBlocks - Ninja           = Generates CodeBlocks project files.
+  CodeBlocks - Unix Makefiles  = Generates CodeBlocks project files.
+  CodeLite - MinGW Makefiles   = Generates CodeLite project files.
+  CodeLite - NMake Makefiles   = Generates CodeLite project files.
+  CodeLite - Ninja             = Generates CodeLite project files.
+  CodeLite - Unix Makefiles    = Generates CodeLite project files.
+  Sublime Text 2 - MinGW Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - NMake Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Ninja       = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Unix Makefiles
+                               = Generates Sublime Text 2 project files.
+  Kate - MinGW Makefiles       = Generates Kate project files.
+  Kate - NMake Makefiles       = Generates Kate project files.
+  Kate - Ninja                 = Generates Kate project files.
+  Kate - Unix Makefiles        = Generates Kate project files.
+  Eclipse CDT4 - NMake Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - MinGW Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Ninja         = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Unix Makefiles= Generates Eclipse CDT 4.0 project files.
+
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is D470-C5ED
+
+ Directory of C:\Users\santi\Desktop\worksheet4\hello_cmake\build2
+
+11/08/2019  01:32 PM    <DIR>          .
+11/08/2019  01:32 PM    <DIR>          ..
+11/08/2019  11:57 AM             2,933 CMakeCache.txt
+11/08/2019  11:57 AM    <DIR>          CMakeFiles
+               1 File(s)          2,933 bytes
+               3 Dir(s)   7,461,593,088 bytes free
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>cmake -G "Visual Studio 16 2019 Win64" ..
+CMake Error: Could not create named generator Visual Studio 16 2019 Win64
+
+Generators
+* Visual Studio 16 2019        = Generates Visual Studio 2019 project files.
+                                 Use -A option to specify architecture.
+  Visual Studio 15 2017 [arch] = Generates Visual Studio 2017 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 14 2015 [arch] = Generates Visual Studio 2015 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 12 2013 [arch] = Generates Visual Studio 2013 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 11 2012 [arch] = Generates Visual Studio 2012 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 10 2010 [arch] = Generates Visual Studio 2010 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Visual Studio 9 2008 [arch]  = Generates Visual Studio 2008 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Borland Makefiles            = Generates Borland makefiles.
+  NMake Makefiles              = Generates NMake makefiles.
+  NMake Makefiles JOM          = Generates JOM makefiles.
+  MSYS Makefiles               = Generates MSYS makefiles.
+  MinGW Makefiles              = Generates a make file for use with
+                                 mingw32-make.
+  Unix Makefiles               = Generates standard UNIX makefiles.
+  Green Hills MULTI            = Generates Green Hills MULTI files
+                                 (experimental, work-in-progress).
+  Ninja                        = Generates build.ninja files.
+  Watcom WMake                 = Generates Watcom WMake makefiles.
+  CodeBlocks - MinGW Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles JOM
+                               = Generates CodeBlocks project files.
+  CodeBlocks - Ninja           = Generates CodeBlocks project files.
+  CodeBlocks - Unix Makefiles  = Generates CodeBlocks project files.
+  CodeLite - MinGW Makefiles   = Generates CodeLite project files.
+  CodeLite - NMake Makefiles   = Generates CodeLite project files.
+  CodeLite - Ninja             = Generates CodeLite project files.
+  CodeLite - Unix Makefiles    = Generates CodeLite project files.
+  Sublime Text 2 - MinGW Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - NMake Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Ninja       = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Unix Makefiles
+                               = Generates Sublime Text 2 project files.
+  Kate - MinGW Makefiles       = Generates Kate project files.
+  Kate - NMake Makefiles       = Generates Kate project files.
+  Kate - Ninja                 = Generates Kate project files.
+  Kate - Unix Makefiles        = Generates Kate project files.
+  Eclipse CDT4 - NMake Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - MinGW Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Ninja         = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Unix Makefiles= Generates Eclipse CDT 4.0 project files.
+
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>cmake -G "Visual Studio 16 2019" ..
+CMake Error: Error: generator : Visual Studio 16 2019
+Does not match the generator used previously: Visual Studio 11 2012 Win64
+Either remove the CMakeCache.txt file and CMakeFiles directory or choose a different binary directory.
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>cmake -G "Visual Studio 11 2012 Win64" ..
+CMake Error at CMakeLists.txt:3 (project):
+  Failed to run MSBuild command:
+
+    C:/Windows/Microsoft.NET/Framework/v4.0.30319/MSBuild.exe
+
+  to get the value of VCTargetsPath:
+
+    Microsoft (R) Build Engine version 4.8.3761.0
+    [Microsoft .NET Framework, version 4.0.30319.42000]
+    Copyright (C) Microsoft Corporation. All rights reserved.
+
+    Build started 11/8/2019 1:38:46 PM.
+    Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\CMakeFiles\3.16.0-rc3\VCTargetsPath.vcxproj" on node 1 (default targets).
+    C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\CMakeFiles\3.16.0-rc3\VCTargetsPath.vcxproj(14,2): error MSB4019: The imported project "C:\Microsoft.Cpp.Default.props" was not found. Confirm that the path in the <Import> declaration is correct, and that the file exists on disk.
+    Done Building Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\CMakeFiles\3.16.0-rc3\VCTargetsPath.vcxproj" (default targets) -- FAILED.
+
+    Build FAILED.
+
+    "C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\CMakeFiles\3.16.0-rc3\VCTargetsPath.vcxproj" (default target) (1) ->
+      C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\CMakeFiles\3.16.0-rc3\VCTargetsPath.vcxproj(14,2): error MSB4019: The imported project "C:\Microsoft.Cpp.Default.props" was not found. Confirm that the path in the <Import> declaration is correct, and that the file exists on disk.
+
+        0 Warning(s)
+        1 Error(s)
+
+    Time Elapsed 00:00:00.26
+
+
+  Exit code: 1
+
+
+
+-- Configuring incomplete, errors occurred!
+See also "C:/Users/santi/Desktop/worksheet4/hello_cmake/build2/CMakeFiles/CMakeOutput.log".
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>cmake -G "Visual Studio 16 2019" ..
+-- Selecting Windows SDK version 10.0.18362.0 to target Windows 10.0.17763.
+-- The C compiler identification is MSVC 19.23.28106.4
+-- The CXX compiler identification is MSVC 19.23.28106.4
+-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.23.28105/bin/Hostx64/x64/cl.exe
+-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.23.28105/bin/Hostx64/x64/cl.exe -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.23.28105/bin/Hostx64/x64/cl.exe
+-- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.23.28105/bin/Hostx64/x64/cl.exe -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/santi/Desktop/worksheet4/hello_cmake/build2
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is D470-C5ED
+
+ Directory of C:\Users\santi\Desktop\worksheet4\hello_cmake\build2
+
+11/08/2019  01:39 PM    <DIR>          .
+11/08/2019  01:39 PM    <DIR>          ..
+11/08/2019  01:39 PM            40,676 ALL_BUILD.vcxproj
+11/08/2019  01:39 PM               300 ALL_BUILD.vcxproj.filters
+11/08/2019  01:39 PM            13,658 CMakeCache.txt
+11/08/2019  01:39 PM    <DIR>          CMakeFiles
+11/08/2019  01:39 PM             1,473 cmake_install.cmake
+11/08/2019  01:39 PM             3,100 hello.sln
+11/08/2019  01:39 PM            50,420 hello.vcxproj
+11/08/2019  01:39 PM               604 hello.vcxproj.filters
+11/08/2019  01:39 PM            40,305 ZERO_CHECK.vcxproj
+11/08/2019  01:39 PM               544 ZERO_CHECK.vcxproj.filters
+               9 File(s)        151,080 bytes
+               3 Dir(s)   7,462,440,960 bytes free
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>"C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\vcvarsall.bat" amd64
+The system cannot find the path specified.
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall.bat
+'C:\Program' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall
+'C:\Program' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall
+'C:\Program' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall.bat" amd64
+**********************************************************************
+** Visual Studio 2019 Developer Command Prompt v16.3.8
+** Copyright (c) 2019 Microsoft Corporation
+**********************************************************************
+[vcvarsall.bat] Environment initialized for: 'x64'
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>msbuild
+Microsoft (R) Build Engine version 16.3.2+e481bbf88 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+MSBUILD : error MSB1011: Specify which project or solution file to use because this folder contains more than one project or solution file.
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>msbuild hello.cln
+Microsoft (R) Build Engine version 16.3.2+e481bbf88 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+MSBUILD : error MSB1009: Project file does not exist.
+Switch: hello.cln
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>msbuild hello.sln
+Microsoft (R) Build Engine version 16.3.2+e481bbf88 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Building the projects in this solution one at a time. To enable parallel build, please add the "-m" switch.
+Build started 11/8/2019 1:47:43 PM.
+Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\hello.sln" on node 1 (default targets).
+ValidateSolutionConfiguration:
+  Building solution configuration "Debug|x64".
+ValidateProjects:
+  The project "ALL_BUILD" is not selected for building in solution configuration "Debug|x64".
+Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\hello.sln" (1) is building "C:\Users\santi\Desktop\worksh
+eet4\hello_cmake\build2\ZERO_CHECK.vcxproj" (2) on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "x64\Debug\ZERO_CHECK\".
+  Creating directory "x64\Debug\ZERO_CHECK\ZERO_CHECK.tlog\".
+InitializeBuildStatus:
+  Creating "x64\Debug\ZERO_CHECK\ZERO_CHECK.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+CustomBuild:
+  Checking Build System
+FinalizeBuildStatus:
+  Deleting file "x64\Debug\ZERO_CHECK\ZERO_CHECK.tlog\unsuccessfulbuild".
+  Touching "x64\Debug\ZERO_CHECK\ZERO_CHECK.tlog\ZERO_CHECK.lastbuildstate".
+Done Building Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\ZERO_CHECK.vcxproj" (default targets).
+
+Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\hello.sln" (1) is building "C:\Users\santi\Desktop\worksh
+eet4\hello_cmake\build2\hello.vcxproj.metaproj" (3) on node 1 (default targets).
+Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\hello.vcxproj.metaproj" (3) is building "C:\Users\santi\D
+esktop\worksheet4\hello_cmake\build2\hello.vcxproj" (4) on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "hello.dir\Debug\".
+  Creating directory "C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\Debug\".
+  Creating directory "hello.dir\Debug\hello.tlog\".
+InitializeBuildStatus:
+  Creating "hello.dir\Debug\hello.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+CustomBuild:
+  Building Custom Rule C:/Users/santi/Desktop/worksheet4/hello_cmake/CMakeLists.txt
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\bin\HostX64\x64\CL.exe /c /Zi
+   /nologo /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /
+  RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"hello.dir\Debug\\" /Fd"hello.dir\Debug\vc142.pd
+  b" /Gd /TP /errorReport:queue C:\Users\santi\Desktop\worksheet4\hello_cmake\hello.cpp
+  hello.cpp
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\bin\HostX64\x64\link.exe /ERR
+  ORREPORT:QUEUE /OUT:"C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\Debug\hello.exe" /INCREMENTAL /NOLOGO kerne
+  l32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANI
+  FEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/santi/Desktop/worksheet4
+  /hello_cmake/build2/Debug/hello.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/santi/Deskt
+  op/worksheet4/hello_cmake/build2/Debug/hello.lib" /MACHINE:X64  /machine:x64 hello.dir\Debug\hello.obj
+  hello.vcxproj -> C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\Debug\hello.exe
+FinalizeBuildStatus:
+  Deleting file "hello.dir\Debug\hello.tlog\unsuccessfulbuild".
+  Touching "hello.dir\Debug\hello.tlog\hello.lastbuildstate".
+Done Building Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\hello.vcxproj" (default targets).
+
+Done Building Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\hello.vcxproj.metaproj" (default targets).
+
+Done Building Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\build2\hello.sln" (default targets).
+
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:02.42
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>debug\hello.exe
+Hello, Planet Earth!
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\build2>cd ..
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake>mkdir  calc_cmake
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake>cd calc_cmake
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake>mkdir mingw_static
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake>mkdir mingw_dynamic
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake>
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake>mkdir msvc_static
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake>mkdir msvc_dynamic
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake>cd mingw_static
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\mingw_static>cmake -G "MinGW Makefiles"
+CMake Warning:
+  No source or binary directory provided.  Both will be assumed to be the
+  same as the current working directory, but note that this warning will
+  become a fatal error in future CMake releases.
+
+
+CMake Error: The source directory "C:/Users/santi/Desktop/worksheet4/hello_cmake/calc_cmake/mingw_static" does not appear to contain CMakeLists.txt.
+Specify --help for usage, or press the help button on the CMake GUI.
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\mingw_static>cmake -G "MinGW Makefiles"
+CMake Warning:
+  No source or binary directory provided.  Both will be assumed to be the
+  same as the current working directory, but note that this warning will
+  become a fatal error in future CMake releases.
+
+
+CMake Error: The source directory "C:/Users/santi/Desktop/worksheet4/hello_cmake/calc_cmake/mingw_static" does not appear to contain CMakeLists.txt.
+Specify --help for usage, or press the help button on the CMake GUI.
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\mingw_static>cmake -G "MinGW Makefiles"
+CMake Warning:
+  No source or binary directory provided.  Both will be assumed to be the
+  same as the current working directory, but note that this warning will
+  become a fatal error in future CMake releases.
+
+
+-- The C compiler identification is GNU 7.3.0
+-- The CXX compiler identification is GNU 7.3.0
+-- Check for working C compiler: C:/Qt/Tools/mingw730_64/bin/gcc.exe
+-- Check for working C compiler: C:/Qt/Tools/mingw730_64/bin/gcc.exe -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: C:/Qt/Tools/mingw730_64/bin/g++.exe
+-- Check for working CXX compiler: C:/Qt/Tools/mingw730_64/bin/g++.exe -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+CMake Error at CMakeLists.txt:18 (add_executable):
+  Cannot find source file:
+
+    calc.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .m .M .mm .h .hh .h++ .hm
+  .hpp .hxx .in .txx
+
+
+CMake Error at CMakeLists.txt:5 (add_library):
+  Cannot find source file:
+
+    adder.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .m .M .mm .h .hh .h++ .hm
+  .hpp .hxx .in .txx
+
+
+CMake Error at CMakeLists.txt:18 (add_executable):
+  No SOURCES given to target: calc
+
+
+CMake Error at CMakeLists.txt:5 (add_library):
+  No SOURCES given to target: maths
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\mingw_static>cmake -G "MinGW Makefiles"
+CMake Warning:
+  No source or binary directory provided.  Both will be assumed to be the
+  same as the current working directory, but note that this warning will
+  become a fatal error in future CMake releases.
+
+
+CMake Error: The source directory "C:/Users/santi/Desktop/worksheet4/hello_cmake/calc_cmake/mingw_static" does not appear to contain CMakeLists.txt.
+Specify --help for usage, or press the help button on the CMake GUI.
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\mingw_static>cmake -G "MinGW Makefiles"
+CMake Warning:
+  No source or binary directory provided.  Both will be assumed to be the
+  same as the current working directory, but note that this warning will
+  become a fatal error in future CMake releases.
+
+
+-- The C compiler identification is GNU 7.3.0
+-- The CXX compiler identification is GNU 7.3.0
+-- Check for working C compiler: C:/Qt/Tools/mingw730_64/bin/gcc.exe
+-- Check for working C compiler: C:/Qt/Tools/mingw730_64/bin/gcc.exe -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: C:/Qt/Tools/mingw730_64/bin/g++.exe
+-- Check for working CXX compiler: C:/Qt/Tools/mingw730_64/bin/g++.exe -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+CMake Error at CMakeLists.txt:4 (add_executable):
+  Cannot find source file:
+
+    hello.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .m .M .mm .h .hh .h++ .hm
+  .hpp .hxx .in .txx
+
+
+CMake Error at CMakeLists.txt:4 (add_executable):
+  No SOURCES given to target: hello
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\mingw_static>cmake -G "MinGW Makefiles" ..
+-- The C compiler identification is GNU 7.3.0
+-- The CXX compiler identification is GNU 7.3.0
+-- Check for working C compiler: C:/Qt/Tools/mingw730_64/bin/gcc.exe
+-- Check for working C compiler: C:/Qt/Tools/mingw730_64/bin/gcc.exe -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: C:/Qt/Tools/mingw730_64/bin/g++.exe
+-- Check for working CXX compiler: C:/Qt/Tools/mingw730_64/bin/g++.exe -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/santi/Desktop/worksheet4/hello_cmake/calc_cmake/mingw_static
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\mingw_static>mingw32-make
+Scanning dependencies of target maths
+[ 25%] Building CXX object CMakeFiles/maths.dir/adder.cpp.obj
+In file included from C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\adder.cpp:3:0:
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\adder.h:40:1: error: expected unqualified-id before numeric constant
+ 10
+ ^~
+mingw32-make[2]: *** [CMakeFiles\maths.dir\build.make:62: CMakeFiles/maths.dir/adder.cpp.obj] Error 1
+mingw32-make[1]: *** [CMakeFiles\Makefile2:104: CMakeFiles/maths.dir/all] Error 2
+mingw32-make: *** [Makefile:83: all] Error 2
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\mingw_static>mingw32-make
+Scanning dependencies of target maths
+[ 25%] Building CXX object CMakeFiles/maths.dir/adder.cpp.obj
+[ 50%] Linking CXX static library libmaths.a
+[ 50%] Built target maths
+Scanning dependencies of target calc
+[ 75%] Building CXX object CMakeFiles/calc.dir/calc.cpp.obj
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\calc.cpp: In function 'int main(int, char**)':
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\calc.cpp:13:1: error: expected ';' before 'ssb'
+ ssb >> b;
+ ^~~
+mingw32-make[2]: *** [CMakeFiles\calc.dir\build.make:62: CMakeFiles/calc.dir/calc.cpp.obj] Error 1
+mingw32-make[1]: *** [CMakeFiles\Makefile2:77: CMakeFiles/calc.dir/all] Error 2
+mingw32-make: *** [Makefile:83: all] Error 2
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\mingw_static>mingw32-make
+[ 50%] Built target maths
+Scanning dependencies of target calc
+[ 75%] Building CXX object CMakeFiles/calc.dir/calc.cpp.obj
+[100%] Linking CXX executable calc.exe
+[100%] Built target calc
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\mingw_static>cd ../mingw_dynamic
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\mingw_dynamic>cmake -G "MinGW Makefiles" -DBUILD_SHARED_LIBS=ON ..
+-- The C compiler identification is GNU 7.3.0
+-- The CXX compiler identification is GNU 7.3.0
+-- Check for working C compiler: C:/Qt/Tools/mingw730_64/bin/gcc.exe
+-- Check for working C compiler: C:/Qt/Tools/mingw730_64/bin/gcc.exe -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: C:/Qt/Tools/mingw730_64/bin/g++.exe
+-- Check for working CXX compiler: C:/Qt/Tools/mingw730_64/bin/g++.exe -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/santi/Desktop/worksheet4/hello_cmake/calc_cmake/mingw_dynamic
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\mingw_dynamic>cmake --help
+Usage
+
+  cmake [options] <path-to-source>
+  cmake [options] <path-to-existing-build>
+  cmake [options] -S <path-to-source> -B <path-to-build>
+
+Specify a source directory to (re-)generate a build system for it in the
+current working directory.  Specify an existing build directory to
+re-generate its build system.
+
+Options
+  -S <path-to-source>          = Explicitly specify a source directory.
+  -B <path-to-build>           = Explicitly specify a build directory.
+  -C <initial-cache>           = Pre-load a script to populate the cache.
+  -D <var>[:<type>]=<value>    = Create or update a cmake cache entry.
+  -U <globbing_expr>           = Remove matching entries from CMake cache.
+  -G <generator-name>          = Specify a build system generator.
+  -T <toolset-name>            = Specify toolset name if supported by
+                                 generator.
+  -A <platform-name>           = Specify platform name if supported by
+                                 generator.
+  -Wdev                        = Enable developer warnings.
+  -Wno-dev                     = Suppress developer warnings.
+  -Werror=dev                  = Make developer warnings errors.
+  -Wno-error=dev               = Make developer warnings not errors.
+  -Wdeprecated                 = Enable deprecation warnings.
+  -Wno-deprecated              = Suppress deprecation warnings.
+  -Werror=deprecated           = Make deprecated macro and function warnings
+                                 errors.
+  -Wno-error=deprecated        = Make deprecated macro and function warnings
+                                 not errors.
+  -E                           = CMake command mode.
+  -L[A][H]                     = List non-advanced cached variables.
+  --build <dir>                = Build a CMake-generated project binary tree.
+  --install <dir>              = Install a CMake-generated project binary
+                                 tree.
+  --open <dir>                 = Open generated project in the associated
+                                 application.
+  -N                           = View mode only.
+  -P <file>                    = Process script mode.
+  --find-package               = Run in pkg-config like mode.
+  --graphviz=[file]            = Generate graphviz of dependencies, see
+                                 CMakeGraphVizOptions.cmake for more.
+  --system-information [file]  = Dump information about this system.
+  --log-level=<ERROR|WARNING|NOTICE|STATUS|VERBOSE|DEBUG|TRACE>
+                               = Set the verbosity of messages from CMake
+                                 files.  --loglevel is also accepted for
+                                 backward compatibility reasons.
+  --debug-trycompile           = Do not delete the try_compile build tree.
+                                 Only useful on one try_compile at a time.
+  --debug-output               = Put cmake in a debug mode.
+  --trace                      = Put cmake in trace mode.
+  --trace-expand               = Put cmake in trace mode with variable
+                                 expansion.
+  --trace-source=<file>        = Trace only this CMake file/module.  Multiple
+                                 options allowed.
+  --trace-redirect=<file>      = Redirect trace output to a file instead of
+                                 stderr.
+  --warn-uninitialized         = Warn about uninitialized values.
+  --warn-unused-vars           = Warn about unused variables.
+  --no-warn-unused-cli         = Don't warn about command line options.
+  --check-system-vars          = Find problems with variable usage in system
+                                 files.
+  --help,-help,-usage,-h,-H,/? = Print usage information and exit.
+  --version,-version,/V [<f>]  = Print version number and exit.
+  --help-full [<f>]            = Print all help manuals and exit.
+  --help-manual <man> [<f>]    = Print one help manual and exit.
+  --help-manual-list [<f>]     = List help manuals available and exit.
+  --help-command <cmd> [<f>]   = Print help for one command and exit.
+  --help-command-list [<f>]    = List commands with help available and exit.
+  --help-commands [<f>]        = Print cmake-commands manual and exit.
+  --help-module <mod> [<f>]    = Print help for one module and exit.
+  --help-module-list [<f>]     = List modules with help available and exit.
+  --help-modules [<f>]         = Print cmake-modules manual and exit.
+  --help-policy <cmp> [<f>]    = Print help for one policy and exit.
+  --help-policy-list [<f>]     = List policies with help available and exit.
+  --help-policies [<f>]        = Print cmake-policies manual and exit.
+  --help-property <prop> [<f>] = Print help for one property and exit.
+  --help-property-list [<f>]   = List properties with help available and
+                                 exit.
+  --help-properties [<f>]      = Print cmake-properties manual and exit.
+  --help-variable var [<f>]    = Print help for one variable and exit.
+  --help-variable-list [<f>]   = List variables with help available and exit.
+  --help-variables [<f>]       = Print cmake-variables manual and exit.
+
+Generators
+
+The following generators are available on this platform (* marks default):
+* Visual Studio 16 2019        = Generates Visual Studio 2019 project files.
+                                 Use -A option to specify architecture.
+  Visual Studio 15 2017 [arch] = Generates Visual Studio 2017 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 14 2015 [arch] = Generates Visual Studio 2015 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 12 2013 [arch] = Generates Visual Studio 2013 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 11 2012 [arch] = Generates Visual Studio 2012 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 10 2010 [arch] = Generates Visual Studio 2010 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Visual Studio 9 2008 [arch]  = Generates Visual Studio 2008 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Borland Makefiles            = Generates Borland makefiles.
+  NMake Makefiles              = Generates NMake makefiles.
+  NMake Makefiles JOM          = Generates JOM makefiles.
+  MSYS Makefiles               = Generates MSYS makefiles.
+  MinGW Makefiles              = Generates a make file for use with
+                                 mingw32-make.
+  Unix Makefiles               = Generates standard UNIX makefiles.
+  Green Hills MULTI            = Generates Green Hills MULTI files
+                                 (experimental, work-in-progress).
+  Ninja                        = Generates build.ninja files.
+  Watcom WMake                 = Generates Watcom WMake makefiles.
+  CodeBlocks - MinGW Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles = Generates CodeBlocks project files.
+  CodeBlocks - NMake Makefiles JOM
+                               = Generates CodeBlocks project files.
+  CodeBlocks - Ninja           = Generates CodeBlocks project files.
+  CodeBlocks - Unix Makefiles  = Generates CodeBlocks project files.
+  CodeLite - MinGW Makefiles   = Generates CodeLite project files.
+  CodeLite - NMake Makefiles   = Generates CodeLite project files.
+  CodeLite - Ninja             = Generates CodeLite project files.
+  CodeLite - Unix Makefiles    = Generates CodeLite project files.
+  Sublime Text 2 - MinGW Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - NMake Makefiles
+                               = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Ninja       = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Unix Makefiles
+                               = Generates Sublime Text 2 project files.
+  Kate - MinGW Makefiles       = Generates Kate project files.
+  Kate - NMake Makefiles       = Generates Kate project files.
+  Kate - Ninja                 = Generates Kate project files.
+  Kate - Unix Makefiles        = Generates Kate project files.
+  Eclipse CDT4 - NMake Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - MinGW Makefiles
+                               = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Ninja         = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Unix Makefiles= Generates Eclipse CDT 4.0 project files.
+
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\mingw_dynamic>cd ..
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake>cd msvc_static
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static>cmake -G "Visual Studio 16 2019" ..
+-- Selecting Windows SDK version 10.0.18362.0 to target Windows 10.0.17763.
+-- The C compiler identification is MSVC 19.23.28106.4
+-- The CXX compiler identification is MSVC 19.23.28106.4
+-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.23.28105/bin/Hostx64/x64/cl.exe
+-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.23.28105/bin/Hostx64/x64/cl.exe -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.23.28105/bin/Hostx64/x64/cl.exe
+-- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.23.28105/bin/Hostx64/x64/cl.exe -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/santi/Desktop/worksheet4/hello_cmake/calc_cmake/msvc_static
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static>make
+'make' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static>-make
+'-make' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static>msbuild-make
+'msbuild-make' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static>msbuild
+Microsoft (R) Build Engine version 16.3.2+e481bbf88 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+MSBUILD : error MSB1011: Specify which project or solution file to use because this folder contains more than one project or solution file.
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static>msbuild calc.sln
+Microsoft (R) Build Engine version 16.3.2+e481bbf88 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Building the projects in this solution one at a time. To enable parallel build, please add the "-m" switch.
+Build started 11/8/2019 2:34:57 PM.
+Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static\calc.sln" on node 1 (default targets).
+ValidateSolutionConfiguration:
+  Building solution configuration "Debug|x64".
+ValidateProjects:
+  The project "ALL_BUILD" is not selected for building in solution configuration "Debug|x64".
+Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static\calc.sln" (1) is building "C:\Users\santi\Desktop\work
+sheet4\hello_cmake\calc_cmake\msvc_static\ZERO_CHECK.vcxproj" (2) on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "x64\Debug\ZERO_CHECK\".
+  Creating directory "x64\Debug\ZERO_CHECK\ZERO_CHECK.tlog\".
+InitializeBuildStatus:
+  Creating "x64\Debug\ZERO_CHECK\ZERO_CHECK.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+CustomBuild:
+  Checking Build System
+FinalizeBuildStatus:
+  Deleting file "x64\Debug\ZERO_CHECK\ZERO_CHECK.tlog\unsuccessfulbuild".
+  Touching "x64\Debug\ZERO_CHECK\ZERO_CHECK.tlog\ZERO_CHECK.lastbuildstate".
+Done Building Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static\ZERO_CHECK.vcxproj" (default targets).
+
+Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static\calc.sln" (1) is building "C:\Users\santi\Desktop\work
+sheet4\hello_cmake\calc_cmake\msvc_static\calc.vcxproj.metaproj" (3) on node 1 (default targets).
+Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static\calc.vcxproj.metaproj" (3) is building "C:\Users\santi
+\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static\maths.vcxproj.metaproj" (4) on node 1 (default targets).
+Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static\maths.vcxproj.metaproj" (4) is building "C:\Users\sant
+i\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static\maths.vcxproj" (5) on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "maths.dir\Debug\".
+  Creating directory "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static\Debug\".
+  Creating directory "maths.dir\Debug\maths.tlog\".
+InitializeBuildStatus:
+  Creating "maths.dir\Debug\maths.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+CustomBuild:
+  Building Custom Rule C:/Users/santi/Desktop/worksheet4/hello_cmake/calc_cmake/CMakeLists.txt
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\bin\HostX64\x64\CL.exe /c /Zi /nologo /W3
+  /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D maths_STATIC /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd
+  /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"maths.dir\Debug\\" /Fd"maths.dir\Debug\maths.pdb" /Gd /TP /errorReport
+  :queue C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\adder.cpp
+  adder.cpp
+Lib:
+  C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\bin\HostX64\x64\Lib.exe /OUT:"C:\Users\san
+  ti\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static\Debug\maths.lib" /NOLOGO /MACHINE:X64  /machine:x64 maths.dir\Debug\adder
+  .obj
+  maths.vcxproj -> C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static\Debug\maths.lib
+CopyFilesToOutputDirectory:
+  Copying file from "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static\maths.dir\Debug\maths.pdb" to "C:\Users\sa
+  nti\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static\Debug\maths.pdb".
+FinalizeBuildStatus:
+  Deleting file "maths.dir\Debug\maths.tlog\unsuccessfulbuild".
+  Touching "maths.dir\Debug\maths.tlog\maths.lastbuildstate".
+Done Building Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static\maths.vcxproj" (default targets).
+
+Done Building Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static\maths.vcxproj.metaproj" (default targets
+).
+
+Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static\calc.vcxproj.metaproj" (3) is building "C:\Users\santi
+\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static\calc.vcxproj" (6) on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "calc.dir\Debug\".
+  Creating directory "calc.dir\Debug\calc.tlog\".
+InitializeBuildStatus:
+  Creating "calc.dir\Debug\calc.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+CustomBuild:
+  Building Custom Rule C:/Users/santi/Desktop/worksheet4/hello_cmake/calc_cmake/CMakeLists.txt
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\bin\HostX64\x64\CL.exe /c /Zi /nologo /W3
+  /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D maths_STATIC /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd
+  /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"calc.dir\Debug\\" /Fd"calc.dir\Debug\vc142.pdb" /Gd /TP /errorReport:q
+  ueue C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\calc.cpp
+  calc.cpp
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\bin\HostX64\x64\link.exe /ERRORREPORT:QUEU
+  E /OUT:"C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static\Debug\calc.exe" /INCREMENTAL /NOLOGO Debug\maths.lib
+  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MA
+  NIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/santi/Desktop/worksheet4/hello_cmake/calc_cma
+  ke/msvc_static/Debug/calc.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/santi/Desktop/worksheet4/hello
+  _cmake/calc_cmake/msvc_static/Debug/calc.lib" /MACHINE:X64  /machine:x64 calc.dir\Debug\calc.obj
+  calc.vcxproj -> C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static\Debug\calc.exe
+FinalizeBuildStatus:
+  Deleting file "calc.dir\Debug\calc.tlog\unsuccessfulbuild".
+  Touching "calc.dir\Debug\calc.tlog\calc.lastbuildstate".
+Done Building Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static\calc.vcxproj" (default targets).
+
+Done Building Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static\calc.vcxproj.metaproj" (default targets)
+.
+
+Done Building Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static\calc.sln" (default targets).
+
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:03.05
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_static>cd ../msvc_dynamic
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic>cmake -G "Visual Studio 16 2019" -DBUILD_SHARED_LIBS=ON ..
+-- Selecting Windows SDK version 10.0.18362.0 to target Windows 10.0.17763.
+-- The C compiler identification is MSVC 19.23.28106.4
+-- The CXX compiler identification is MSVC 19.23.28106.4
+-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.23.28105/bin/Hostx64/x64/cl.exe
+-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.23.28105/bin/Hostx64/x64/cl.exe -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.23.28105/bin/Hostx64/x64/cl.exe
+-- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.23.28105/bin/Hostx64/x64/cl.exe -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/santi/Desktop/worksheet4/hello_cmake/calc_cmake/msvc_dynamic
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic>msbuild calc.sln
+Microsoft (R) Build Engine version 16.3.2+e481bbf88 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Building the projects in this solution one at a time. To enable parallel build, please add the "-m" switch.
+Build started 11/8/2019 2:36:45 PM.
+Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic\calc.sln" on node 1 (default targets).
+ValidateSolutionConfiguration:
+  Building solution configuration "Debug|x64".
+ValidateProjects:
+  The project "ALL_BUILD" is not selected for building in solution configuration "Debug|x64".
+Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic\calc.sln" (1) is building "C:\Users\santi\Desktop\wor
+ksheet4\hello_cmake\calc_cmake\msvc_dynamic\ZERO_CHECK.vcxproj" (2) on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "x64\Debug\ZERO_CHECK\".
+  Creating directory "x64\Debug\ZERO_CHECK\ZERO_CHECK.tlog\".
+InitializeBuildStatus:
+  Creating "x64\Debug\ZERO_CHECK\ZERO_CHECK.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+CustomBuild:
+  Checking Build System
+FinalizeBuildStatus:
+  Deleting file "x64\Debug\ZERO_CHECK\ZERO_CHECK.tlog\unsuccessfulbuild".
+  Touching "x64\Debug\ZERO_CHECK\ZERO_CHECK.tlog\ZERO_CHECK.lastbuildstate".
+Done Building Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic\ZERO_CHECK.vcxproj" (default targets).
+
+Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic\calc.sln" (1) is building "C:\Users\santi\Desktop\wor
+ksheet4\hello_cmake\calc_cmake\msvc_dynamic\calc.vcxproj.metaproj" (3) on node 1 (default targets).
+Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic\calc.vcxproj.metaproj" (3) is building "C:\Users\sant
+i\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic\maths.vcxproj.metaproj" (4) on node 1 (default targets).
+Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic\maths.vcxproj.metaproj" (4) is building "C:\Users\san
+ti\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic\maths.vcxproj" (5) on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "maths.dir\Debug\".
+  Creating directory "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic\Debug\".
+  Creating directory "maths.dir\Debug\maths.tlog\".
+InitializeBuildStatus:
+  Creating "maths.dir\Debug\maths.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+CustomBuild:
+  Building Custom Rule C:/Users/santi/Desktop/worksheet4/hello_cmake/calc_cmake/CMakeLists.txt
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\bin\HostX64\x64\CL.exe /c /Zi /nologo /W3
+  /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D maths_EXPORTS /D _WINDLL /D _MBCS /Gm- /EHsc
+   /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"maths.dir\Debug\\" /Fd"maths.dir\Debug\vc142.pdb" /Gd /TP
+  /errorReport:queue C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\adder.cpp
+  adder.cpp
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\bin\HostX64\x64\link.exe /ERRORREPORT:QUEU
+  E /OUT:"C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic\Debug\maths.dll" /INCREMENTAL /NOLOGO kernel32.lib u
+  ser32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"lev
+  el='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/santi/Desktop/worksheet4/hello_cmake/calc_cmake/msvc_dynami
+  c/Debug/maths.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/santi/Desktop/worksheet4/hello_cmake/calc_
+  cmake/msvc_dynamic/Debug/maths.lib" /MACHINE:X64  /machine:x64 /DLL maths.dir\Debug\adder.obj
+     Creating library C:/Users/santi/Desktop/worksheet4/hello_cmake/calc_cmake/msvc_dynamic/Debug/maths.lib and object C:/Users/sant
+  i/Desktop/worksheet4/hello_cmake/calc_cmake/msvc_dynamic/Debug/maths.exp
+  maths.vcxproj -> C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic\Debug\maths.dll
+FinalizeBuildStatus:
+  Deleting file "maths.dir\Debug\maths.tlog\unsuccessfulbuild".
+  Touching "maths.dir\Debug\maths.tlog\maths.lastbuildstate".
+Done Building Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic\maths.vcxproj" (default targets).
+
+Done Building Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic\maths.vcxproj.metaproj" (default target
+s).
+
+Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic\calc.vcxproj.metaproj" (3) is building "C:\Users\sant
+i\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic\calc.vcxproj" (6) on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "calc.dir\Debug\".
+  Creating directory "calc.dir\Debug\calc.tlog\".
+InitializeBuildStatus:
+  Creating "calc.dir\Debug\calc.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+CustomBuild:
+  Building Custom Rule C:/Users/santi/Desktop/worksheet4/hello_cmake/calc_cmake/CMakeLists.txt
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\bin\HostX64\x64\CL.exe /c /Zi /nologo /W3
+  /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise
+  /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"calc.dir\Debug\\" /Fd"calc.dir\Debug\vc142.pdb" /Gd /TP /errorReport:queue C:\Users\sa
+  nti\Desktop\worksheet4\hello_cmake\calc_cmake\calc.cpp
+  calc.cpp
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\bin\HostX64\x64\link.exe /ERRORREPORT:QUEU
+  E /OUT:"C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic\Debug\calc.exe" /INCREMENTAL /NOLOGO Debug\maths.lib
+   kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /M
+  ANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/santi/Desktop/worksheet4/hello_cmake/calc_cm
+  ake/msvc_dynamic/Debug/calc.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/santi/Desktop/worksheet4/hel
+  lo_cmake/calc_cmake/msvc_dynamic/Debug/calc.lib" /MACHINE:X64  /machine:x64 calc.dir\Debug\calc.obj
+  calc.vcxproj -> C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic\Debug\calc.exe
+FinalizeBuildStatus:
+  Deleting file "calc.dir\Debug\calc.tlog\unsuccessfulbuild".
+  Touching "calc.dir\Debug\calc.tlog\calc.lastbuildstate".
+Done Building Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic\calc.vcxproj" (default targets).
+
+Done Building Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic\calc.vcxproj.metaproj" (default targets
+).
+
+Done Building Project "C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic\calc.sln" (default targets).
+
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:02.90
+
+C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\msvc_dynamic>msbuild calc.sln

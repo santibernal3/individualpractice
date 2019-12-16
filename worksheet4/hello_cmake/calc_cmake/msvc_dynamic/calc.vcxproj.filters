@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\calc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\santi\Desktop\worksheet4\hello_cmake\calc_cmake\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{B9A24AB0-B12A-31D6-97F8-D2A6A031DB68}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

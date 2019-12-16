@@ -1,0 +1,498 @@
+Microsoft Windows [Version 10.0.17763.805]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\Users\santi>cd desktop\worksheet3\calc_msvc
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is D470-C5ED
+
+ Directory of C:\Users\santi\Desktop\worksheet3\calc_msvc
+
+11/07/2019  03:38 PM    <DIR>          .
+11/07/2019  03:38 PM    <DIR>          ..
+11/07/2019  09:41 AM               161 adder.cpp
+11/06/2019  01:37 PM             1,599 adder.h
+11/04/2019  02:26 PM               398 calc.cpp
+11/07/2019  03:19 PM           353,433 calc.obj
+11/07/2019  03:38 PM           440,944 libmaths.lib
+               5 File(s)        796,535 bytes
+               2 Dir(s)   7,890,722,816 bytes free
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>cl.exe /c adder.cpp
+'cl.exe' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall" amd64
+**********************************************************************
+** Visual Studio 2019 Developer Command Prompt v16.3.8
+** Copyright (c) 2019 Microsoft Corporation
+**********************************************************************
+[vcvarsall] Environment initialized for: 'x64'
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>cl.exe /c adder.cpp
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+adder.cpp
+C:\Users\santi\Desktop\worksheet3\calc_msvc\adder.h(5): error C2059: syntax error: 'constant'
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>cl.exe /c adder.cpp
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+adder.cpp
+C:\Users\santi\Desktop\worksheet3\calc_msvc\adder.h(5): error C2059: syntax error: 'constant'
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>cl.exe /EHsc /words adder.cpp
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+cl : Command line error D8021 : invalid numeric argument '/words'
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>
+C:\Users\santi\Desktop\worksheet3\calc_msvc>cl /EHsc adder.cpp
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+adder.cpp
+C:\Users\santi\Desktop\worksheet3\calc_msvc\adder.h(5): error C2059: syntax error: 'constant'
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>notepad adder.cpp
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>notepad adder.h
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>cl.exe /EHsc /words adder.cpp
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+cl : Command line error D8021 : invalid numeric argument '/words'
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>cl.exe /c adder.cpp
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+adder.cpp
+adder.cpp(3): warning C4273: 'add': inconsistent dll linkage
+C:\Users\santi\Desktop\worksheet3\calc_msvc\adder.h(39): note: see previous definition of 'add'
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>cl.exe /c adder.cpp
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+adder.cpp
+adder.cpp(3): warning C4273: 'add': inconsistent dll linkage
+C:\Users\santi\Desktop\worksheet3\calc_msvc\adder.h(39): note: see previous definition of 'add'
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>notepad adder.h
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>cl.exe /c adder.cpp
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+adder.cpp
+adder.cpp(3): warning C4273: 'add': inconsistent dll linkage
+C:\Users\santi\Desktop\worksheet3\calc_msvc\adder.h(39): note: see previous definition of 'add'
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>cl.exe /c calc.cpp
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+calc.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ostream(288): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ostream(273): note: while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(int)'
+calc.cpp(22): note: see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(int)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(702): note: see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\sstream(518): note: see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+calc.cpp(15): note: see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is D470-C5ED
+
+ Directory of C:\Users\santi\Desktop\worksheet3\calc_msvc
+
+11/07/2019  04:08 PM    <DIR>          .
+11/07/2019  04:08 PM    <DIR>          ..
+11/07/2019  09:41 AM               161 adder.cpp
+11/07/2019  04:05 PM             1,598 adder.h
+11/07/2019  04:08 PM               654 adder.obj
+11/04/2019  02:26 PM               398 calc.cpp
+11/07/2019  04:08 PM           353,433 calc.obj
+               5 File(s)        356,244 bytes
+               2 Dir(s)   7,833,219,072 bytes free
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>lib adder.obj /out::libmaths.lib
+Microsoft (R) Library Manager Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is D470-C5ED
+
+ Directory of C:\Users\santi\Desktop\worksheet3\calc_msvc
+
+11/07/2019  04:11 PM    <DIR>          .
+11/07/2019  04:11 PM    <DIR>          ..
+11/07/2019  09:41 AM               161 adder.cpp
+11/07/2019  04:05 PM             1,598 adder.h
+11/07/2019  04:08 PM               654 adder.obj
+11/04/2019  02:26 PM               398 calc.cpp
+11/07/2019  04:08 PM           353,433 calc.obj
+               5 File(s)        356,244 bytes
+               2 Dir(s)   7,832,920,064 bytes free
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>lib calc.obj /out::libmaths.lib
+Microsoft (R) Library Manager Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>mkdir math_library
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>mkdir maths_library\lib
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>lib adder.obj /out::libmaths.lib
+Microsoft (R) Library Manager Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>lib adder.obj
+Microsoft (R) Library Manager Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>lib adder.obj /out::libmaths.lib
+Microsoft (R) Library Manager Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>lib adder.obj
+Microsoft (R) Library Manager Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>lib adder.obj /out::libmaths.lib
+Microsoft (R) Library Manager Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>lib calc.obj
+Microsoft (R) Library Manager Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>lib adder.obj /out::libmaths.lib
+Microsoft (R) Library Manager Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>lib adder.lib adder.obj
+Microsoft (R) Library Manager Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+Replacing adder.obj
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>lib adder.obj /out::libmaths.lib
+Microsoft (R) Library Manager Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>lib adder.obj /out::libmaths.lib
+Microsoft (R) Library Manager Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>lib adder.obj /out::libmaths.a
+Microsoft (R) Library Manager Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>lib adder.obj /out:libmaths.lib
+Microsoft (R) Library Manager Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is D470-C5ED
+
+ Directory of C:\Users\santi\Desktop\worksheet3\calc_msvc
+
+11/08/2019  09:20 AM    <DIR>          .
+11/08/2019  09:20 AM    <DIR>          ..
+11/07/2019  09:41 AM               161 adder.cpp
+11/07/2019  04:05 PM             1,598 adder.h
+11/07/2019  04:21 PM               892 adder.lib
+11/07/2019  04:08 PM               654 adder.obj
+11/04/2019  02:26 PM               398 calc.cpp
+11/07/2019  04:19 PM           440,944 calc.lib
+11/07/2019  04:08 PM           353,433 calc.obj
+11/08/2019  09:20 AM               892 libmaths.lib
+11/07/2019  04:13 PM    <DIR>          maths_library
+               8 File(s)        798,972 bytes
+               3 Dir(s)   7,823,581,184 bytes free
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>cl.exe calc.cpp
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+calc.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ostream(288): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ostream(273): note: while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(int)'
+calc.cpp(22): note: see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(int)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(702): note: see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\sstream(518): note: see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+calc.cpp(15): note: see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+Microsoft (R) Incremental Linker Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:calc.exe
+calc.obj
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>link calc.cpp libmaths.lib .exe calc.exe
+Microsoft (R) Incremental Linker Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+calc.cpp : fatal error LNK1107: invalid or corrupt file: cannot read at 0x18E
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>link calc.obj libmaths.lib .exe calc.exe
+Microsoft (R) Incremental Linker Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+LINK : fatal error LNK1181: cannot open input file '.exe'
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>link calc.obj libmaths.lib .exe calc.exe
+Microsoft (R) Incremental Linker Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+LINK : fatal error LNK1181: cannot open input file '.exe'
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>link calc.obj libmaths.lib .exe calc.cpp
+Microsoft (R) Incremental Linker Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+LINK : fatal error LNK1181: cannot open input file '.exe'
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>link.exe calc.obj libmaths.lib  calc.cpp
+Microsoft (R) Incremental Linker Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+calc.cpp : fatal error LNK1107: invalid or corrupt file: cannot read at 0x18E
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>link.exe calc.obj libmaths.lib  calc.cpp
+Microsoft (R) Incremental Linker Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+calc.cpp : fatal error LNK1107: invalid or corrupt file: cannot read at 0x18E
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>link.exe calc.obj libmaths.lib
+Microsoft (R) Incremental Linker Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is D470-C5ED
+
+ Directory of C:\Users\santi\Desktop\worksheet3\calc_msvc
+
+11/08/2019  09:42 AM    <DIR>          .
+11/08/2019  09:42 AM    <DIR>          ..
+11/07/2019  09:41 AM               161 adder.cpp
+11/07/2019  04:05 PM             1,598 adder.h
+11/07/2019  04:21 PM               892 adder.lib
+11/07/2019  04:08 PM               654 adder.obj
+11/04/2019  02:26 PM               398 calc.cpp
+11/08/2019  09:42 AM           326,144 calc.exe
+11/07/2019  04:19 PM           440,944 calc.lib
+11/08/2019  09:22 AM           353,433 calc.obj
+11/08/2019  09:20 AM               892 libmaths.lib
+11/07/2019  04:13 PM    <DIR>          maths_library
+               9 File(s)      1,125,116 bytes
+               3 Dir(s)   7,616,868,352 bytes free
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>calc
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>calc 6 7
+13
+C:\Users\santi\Desktop\worksheet3\calc_msvc>mkdir maths_library
+A subdirectory or file maths_library already exists.
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>move libmaths.lib maths_library\lib
+        1 file(s) moved.
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>mkdir maths_library\include
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>copy adder.h maths_library\include
+        1 file(s) copied.
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>mkdir cal_program
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>copy calc.cpp calc_program
+        1 file(s) copied.
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>g++ -c calc.cpp -I..\maths_library\include
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>cl.exe /c calc.cpp -I..\maths_library\include
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+calc.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ostream(288): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ostream(273): note: while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(int)'
+calc.cpp(22): note: see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(int)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(702): note: see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\sstream(518): note: see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+calc.cpp(15): note: see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>cl.exe calc.obj -L..\maths_library\lib -lmaths /o calc.exe
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+cl : Command line warning D9035 : option 'o' has been deprecated and will be removed in a future release
+cl : Command line warning D9002 : ignoring unknown option '-L..\maths_library\lib'
+cl : Command line warning D9002 : ignoring unknown option '-lmaths'
+Microsoft (R) Incremental Linker Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:calc.exe
+/out:calc.exe
+calc.obj
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>cl.exe adder.cpp /Dmaths_EXPORTS
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+adder.cpp
+Microsoft (R) Incremental Linker Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:adder.exe
+adder.obj
+   Creating library adder.lib and object adder.exp
+LINK : fatal error LNK1561: entry point must be defined
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>cl.exe adder.cpp /Dmaths_STATIC
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+adder.cpp
+Microsoft (R) Incremental Linker Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:adder.exe
+adder.obj
+LINK : fatal error LNK1561: entry point must be defined
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>cl.exe adder.cpp /Dmaths_EXPORTS
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+adder.cpp
+Microsoft (R) Incremental Linker Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:adder.exe
+adder.obj
+   Creating library adder.lib and object adder.exp
+LINK : fatal error LNK1561: entry point must be defined
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>cl.exe /c adder.cpp /Dmaths_EXPORTS
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+adder.cpp
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>cl.exe /shared adder.obj /o libmaths.dll /Wl,--out-implib,libmaths.dll.a
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+cl : Command line warning D9035 : option 'o' has been deprecated and will be removed in a future release
+cl : Command line error D8021 : invalid numeric argument '/Wl,--out-implib,libmaths.dll.a'
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>cl.exe /shared adder.obj /o libmaths.dll -Wl,--out-implib,libmaths.dll.a
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+cl : Command line warning D9035 : option 'o' has been deprecated and will be removed in a future release
+cl : Command line error D8021 : invalid numeric argument '/Wl,--out-implib,libmaths.dll.a'
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>link /dll adder.obj /out:libmaths.dll
+Microsoft (R) Incremental Linker Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+   Creating library libmaths.lib and object libmaths.exp
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is D470-C5ED
+
+ Directory of C:\Users\santi\Desktop\worksheet3\calc_msvc
+
+11/08/2019  10:20 AM    <DIR>          .
+11/08/2019  10:20 AM    <DIR>          ..
+11/07/2019  09:41 AM               161 adder.cpp
+11/08/2019  10:09 AM               700 adder.exp
+11/07/2019  04:05 PM             1,598 adder.h
+11/08/2019  10:00 AM             1,702 adder.lib
+11/08/2019  10:13 AM               654 adder.obj
+11/04/2019  02:26 PM               398 calc.cpp
+11/08/2019  09:58 AM           326,144 calc.exe
+11/07/2019  04:19 PM           440,944 calc.lib
+11/08/2019  09:56 AM             3,753 calc.o
+11/08/2019  09:57 AM           353,433 calc.obj
+11/04/2019  02:26 PM               398 calc_program
+11/08/2019  09:52 AM    <DIR>          cal_program
+11/08/2019  10:20 AM            90,112 libmaths.dll
+11/08/2019  10:20 AM               707 libmaths.exp
+11/08/2019  10:20 AM             1,740 libmaths.lib
+11/08/2019  09:51 AM    <DIR>          maths_library
+              14 File(s)      1,222,444 bytes
+               4 Dir(s)   7,600,578,560 bytes free
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>cl.exe /c  calc.cpp -I..\maths_library\include
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+calc.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ostream(288): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ostream(273): note: while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(int)'
+calc.cpp(22): note: see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(int)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\istream(702): note: see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\sstream(518): note: see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+calc.cpp(15): note: see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>copy /Y addder.h maths_library\include
+The system cannot find the file specified.
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>copy /Y adder.h maths_library\include
+        1 file(s) copied.
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>move libmaths.dll.a maths_library\lib
+The system cannot find the file specified.
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>move libmaths.dll.lib maths_library\lib
+The system cannot find the file specified.
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>move libmaths.dll.exp maths_library\lib
+The system cannot find the file specified.
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>move libmaths.exp maths_library\lib
+        1 file(s) moved.
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>mkdir maths_library\bin
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>move libmaths.exp maths_library\lib
+The system cannot find the file specified.
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>move libmaths.exp maths_library\bin
+The system cannot find the file specified.
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>mkdir maths_library\bin
+A subdirectory or file maths_library\bin already exists.
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>move libmaths.dll maths_library\bin
+        1 file(s) moved.
+
+C:\Users\santi\Desktop\worksheet3\calc_msvc>

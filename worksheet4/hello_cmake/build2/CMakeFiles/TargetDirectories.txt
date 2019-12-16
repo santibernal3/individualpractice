@@ -1,0 +1,3 @@
+C:/Users/santi/Desktop/worksheet4/hello_cmake/build2/CMakeFiles/hello.dir
+C:/Users/santi/Desktop/worksheet4/hello_cmake/build2/CMakeFiles/ALL_BUILD.dir
+C:/Users/santi/Desktop/worksheet4/hello_cmake/build2/CMakeFiles/ZERO_CHECK.dir
